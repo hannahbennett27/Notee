@@ -1,0 +1,33 @@
+.test {
+  border: red 1px solid;
+}
+
+#root {
+  display: flex;
+  justify-content: center;
+}
+
+.App-header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 10vh;
+  width: 100vw;
+  border-bottom: 2px black solid;
+  margin-bottom: 0.5em;
+}
+
+.App-title {
+  font-size: 1.5em;
+}
+
+/* .container {
+  display: flex;
+  justify-content: center;
+} */
+
+.card {
+  width: 90%;
+  max-width: 20em;
+  margin-top: 3%;
+}
