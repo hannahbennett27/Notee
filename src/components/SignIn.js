@@ -11,7 +11,7 @@ class SignIn extends Component {
     const { updateAuthState } = this.props;
 
     const signInForm = (
-      <div className="card">
+      <div className="card mx-auto">
         <div className="card-body">
           <form>
             <p>

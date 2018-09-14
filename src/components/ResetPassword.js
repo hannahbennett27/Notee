@@ -10,10 +10,8 @@ class ResetPassword extends Component {
   };
 
   render() {
-    const { updateAuthState } = this.props;
-
     const resetPasswordForm = (
-      <div className="card">
+      <div className="card mx-auto">
         <div className="card-body">
           <form>
             <p>

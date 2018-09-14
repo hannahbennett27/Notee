@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { Auth } from 'aws-amplify';
-import { VerifyContact } from 'aws-amplify-react';
 
 class VerifyEmail extends Component {
   state = {
@@ -10,7 +9,7 @@ class VerifyEmail extends Component {
 
   render() {
     const verificationForm = (
-      <div className="card">
+      <div className="card mx-auto">
         <div className="card-body">
           <form>
             <p>

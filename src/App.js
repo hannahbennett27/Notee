@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-
-import { withAuthenticator, Authenticator, Greetings } from 'aws-amplify-react';
+// import { withAuthenticator, Authenticator, Greetings } from 'aws-amplify-react';
 import Amplify, { Auth } from 'aws-amplify';
 import aws_exports from './aws-exports';
 
@@ -38,7 +37,9 @@ class App extends Component {
     const appHeader = (
       <header className="App-header">
         <h1 className="App-title">
-          <strong>Notee</strong>
+          {/* <a onClick={() => this.updateAuthState('')}> */}
+          <strong>Notee!</strong>
+          {/* </a> */}
         </h1>
       </header>
     );
@@ -74,7 +75,7 @@ class App extends Component {
     return (
       <div className="App">
         {appHeader}
-        <div className="d-flex justify-content-center">{appPage}</div>
+        {appPage}
       </div>
     );
   }
@@ -87,7 +88,3 @@ class App extends Component {
 // export default withAuthenticator(App, false, [<SignIn />]);
 // export default withAuthenticator(App);
 export default App;
-
-// *****************************************************************************
-// TEST EMAIL: hannah.bennett@isotoma.com
-// TEST PASSWORD: password1

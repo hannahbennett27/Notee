@@ -14,7 +14,7 @@ class Register extends Component {
     const { updateAuthState } = this.props;
 
     const registrationForm = (
-      <div className="card">
+      <div className="card mx-auto">
         <div className="card-body">
           <form>
             <p>
