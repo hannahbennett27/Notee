@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { Storage } from 'aws-amplify';
-import NavBar from './NavBar';
+import UserHomeNavBar from './UserHomeNavBar';
 
 class UserHome extends Component {
   state = {
@@ -19,14 +19,16 @@ class UserHome extends Component {
 
   render() {
     const { search, notes } = this.state;
+    const { changePage } = this.props;
 
     return (
       <div>
-        <NavBar
+        <UserHomeNavBar
           searchState={search}
           handleChange={this.handleChange}
           handleSearch={this.handleSearch}
           handleSort={this.handleSort}
+          changePage={changePage}
         />
         <div>
           <ul className="list-group mx-auto">
@@ -69,26 +71,6 @@ class UserHome extends Component {
       ? this.setState({ search: '', sort: e.target.name })
       : this.setState({ sort: e.target.name });
   };
-
-  // testPutFile = () => {
-  //   Storage.put(
-  //     'Test Note One.txt',
-  //     JSON.stringify({
-  //       created_at: 'timestamp01',
-  //       subnotes: [
-  //         'First note bullet point',
-  //         'And a second one...',
-  //         'And a third!'
-  //       ]
-  //     }),
-  //     {
-  //       level: 'private',
-  //       contentType: 'JSON'
-  //     }
-  //   )
-  //     .then(result => console.log(result))
-  //     .catch(err => console.log(err));
-  // };
 
   // testGetFile = () => {
   //   Storage.get('testThree.txt', { level: 'private' })

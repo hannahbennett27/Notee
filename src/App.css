@@ -26,6 +26,10 @@
   /* max-height: 85vh; */
 }
 
+/* .card-body {
+  padding: 0.6rem;
+} */
+
 .card-text,
 .card-title,
 .card-subtitle {
@@ -33,7 +37,8 @@
   text-align: left;
 }
 
-.list-group {
+.list-group,
+.form-group {
   width: 90%;
 }
 
@@ -44,4 +49,8 @@ ul {
 .navbar {
   padding: 0;
   margin: 5px;
+}
+
+.bottom-p-tag {
+  margin-bottom: 0;
 }

@@ -6,7 +6,7 @@ import aws_exports from './aws-exports';
 import './App.css';
 import Register from './components/Register';
 import VerifyEmail from './components/VerifyEmail';
-import UserHome from './components/UserHome';
+import UserPage from './components/UserPage';
 import SignIn from './components/SignIn';
 import ResetPasswordReq from './components/ResetPasswordReq';
 import ResetPassword from './components/ResetPassword';
@@ -63,13 +63,13 @@ class App extends Component {
         appPage = <ResetPassword {...props} />;
         break;
       case 'signedIn':
-        appPage = <UserHome />;
+        appPage = <UserPage />;
         break;
       case 'signedOut':
         appPage = <NonUserHome {...props} />;
         break;
       default:
-        appPage = <NonUserHome {...props} />; // Change default to NonUserHome once component complete
+        appPage = <NonUserHome {...props} />;
     }
 
     return (

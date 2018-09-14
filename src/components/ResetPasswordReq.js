@@ -41,7 +41,7 @@ class ResetPasswordReq extends Component {
               </button>
             </div>
             <div>
-              <p>
+              <p className="bottom-p-tag">
                 <a href="#" onClick={() => updateAuthState('signIn')}>
                   Back to Sign In
                 </a>

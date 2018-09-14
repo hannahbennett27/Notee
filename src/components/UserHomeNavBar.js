@@ -1,51 +1,57 @@
 import React from 'react';
 import SignOut from './SignOut';
 
-const NavBar = ({ searchState, handleChange, handleSearch, handleSort }) => {
+const NavBar = ({
+  searchState,
+  handleChange,
+  handleSearch,
+  handleSort,
+  changePage
+}) => {
   return (
     <nav className="navbar navbar-light bg-light">
-      <div className="nav-item dropdown">
-        <a
-          className="nav-link dropdown-toggle"
-          id="navbarDropdownMenuLink"
-          role="button"
-          data-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          ...
-        </a>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-          <a className="dropdown-item">Home</a>
-          <a className="dropdown-item">Account</a>
-          <SignOut />
-        </div>
-      </div>
       <div className="input-group">
+        <div className="nav-item dropdown">
+          <a
+            className="nav-link dropdown-toggle input-group-prepend"
+            id="navbarDropdownMenuLink"
+            role="button"
+            data-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            {/* User Menu Toggle */}
+          </a>
+          <div
+            className="dropdown-menu"
+            aria-labelledby="navbarDropdownMenuLink"
+          >
+            <a className="dropdown-item">Home</a>
+            <a className="dropdown-item">Account</a>
+            <SignOut />
+          </div>
+        </div>
+        <div className="input-group-prepend" />
         <input
           type="text"
-          className="form-control"
-          aria-label="Text input with segmented dropdown button"
+          className="form-control bg-light"
           placeholder="Search"
           value={searchState}
           onChange={handleChange}
         />
         <div className="input-group-append">
-          <button
-            type="button"
-            className="btn btn-outline-secondary"
-            onClick={handleSearch}
-          >
+          <button type="button" className="btn bg-light" onClick={handleSearch}>
             Go!
           </button>
           <button
             type="button"
-            className="btn btn-outline-secondary dropdown-toggle dropdown-toggle-split"
+            className="btn bg-light dropdown-toggle dropdown-toggle-split"
             data-toggle="dropdown"
             aria-haspopup="true"
             aria-expanded="false"
           >
             <span className="sr-only">Toggle Dropdown</span>
+            {/* Sort Menu Toggle */}
           </button>
           <div className="dropdown-menu">
             <a className="dropdown-item" name="showAll" onClick={handleSort}>
@@ -72,6 +78,14 @@ const NavBar = ({ searchState, handleChange, handleSearch, handleSort }) => {
               Oldest First
             </a>
           </div>
+          <button
+            className="btn bg-light"
+            type="button"
+            value="NewNote"
+            onClick={changePage}
+          >
+            New
+          </button>
         </div>
       </div>
     </nav>

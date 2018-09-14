@@ -7,10 +7,10 @@ class NonUserHome extends Component {
     return (
       <div>
         <nav className="navbar navbar-dark d-flex justify-content-around">
-          <a href="#" href="#" onClick={() => updateAuthState('signUp')}>
+          <a href="#" onClick={() => updateAuthState('signUp')}>
             Create Account
           </a>
-          <a href="#" href="#" onClick={() => updateAuthState('signIn')}>
+          <a href="#" onClick={() => updateAuthState('signIn')}>
             Sign In
           </a>
         </nav>

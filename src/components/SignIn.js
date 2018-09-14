@@ -51,7 +51,7 @@ class SignIn extends Component {
               </button>
             </div>
             <div>
-              <p>
+              <p className="bottom-p-tag">
                 No account?{' '}
                 <a href="#" onClick={() => updateAuthState('signUp')}>
                   Create account
