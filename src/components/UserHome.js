@@ -30,17 +30,24 @@ class UserHome extends Component {
           handleSort={this.handleSort}
           changePage={changePage}
         />
-        <div>
-          <ul className="list-group mx-auto">
-            {notes.map(note => {
-              const titleRegExp = /(\D+).txt/;
-              const noteTitle = titleRegExp.exec(note.key)[1];
 
-              return (
-                <li key={note.eTag} className="list-group-item">
+        <ul className="list-group mx-auto">
+          {notes.map(note => {
+            const titleRegExp = /(\D+).txt/;
+            const noteTitle = titleRegExp.exec(note.key)[1];
+
+            return (
+              <button
+                key={note.eTag}
+                className="note-title-btn btn btn-link"
+                value={note.key}
+                onClick={this.handleNoteClick}
+              >
+                <li className="list-group-item">
                   <p className="card-title">
                     <strong>{noteTitle}</strong>
                   </p>
+
                   <p className="card-subtitle mb-2 text-muted">
                     <small>
                       Last modified {note.lastModified.toDateString()}
@@ -55,10 +62,10 @@ class UserHome extends Component {
                     </li>
                   </ul>
                 </li>
-              );
-            })}
-          </ul>
-        </div>
+              </button>
+            );
+          })}
+        </ul>
       </div>
     );
   }
@@ -75,6 +82,11 @@ class UserHome extends Component {
     e.target.name === 'showAll'
       ? this.setState({ search: '', sort: e.target.name })
       : this.setState({ sort: e.target.name });
+  };
+
+  handleNoteClick = e => {
+    const { changePage } = this.props;
+    changePage(e.target.value);
   };
 }
 

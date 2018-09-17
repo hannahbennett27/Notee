@@ -27,9 +27,9 @@
   /* max-height: 85vh; */
 }
 
-/* .card-body {
+.card-body {
   padding: 0.6rem;
-} */
+}
 
 .card-text,
 .card-title,
@@ -38,8 +38,11 @@
   text-align: left;
 }
 
-.list-group,
-.form-group {
+/* .form-group {
+  width: 100%;
+} */
+
+.list-group {
   width: 90%;
 }
 
@@ -54,4 +57,10 @@ ul {
 
 .bottom-p-tag {
   margin-bottom: 0;
+}
+
+.note-title-btn {
+  border: 0;
+  padding: 0;
+  color: black;
 }

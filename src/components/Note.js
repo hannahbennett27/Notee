@@ -43,16 +43,14 @@ class Note extends Component {
                 );
               })}
             </ul>
-            <form>
-              <textarea
-                className="form-control"
-                rows="2"
-                placeholder="- Add bullet point..."
-                value={newSubnote}
-                onChange={this.handleChange}
-                onKeyPress={this.handleEnter}
-              />
-            </form>
+            <textarea
+              className="form-control"
+              rows="2"
+              placeholder="- Add bullet point..."
+              value={newSubnote}
+              onChange={this.handleChange}
+              onKeyPress={this.handleEnter}
+            />
           </li>
         </ul>
       </div>

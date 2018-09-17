@@ -11,18 +11,16 @@ class NewNote extends Component {
     return (
       <div>
         <NoteNavBar changePage={changePage} />
-        <form>
-          <div className="form-group mx-auto">
+        <ul className="list-group mx-auto">
+          <li className="list-group-item">
             <input
               type="text"
               className="form-control"
-              // id="exampleFormControlInput1"
               placeholder="Note Title"
               onChange={this.handleChange}
               onKeyPress={this.handleEnter}
             />
-          </div>
-          <div className="form-group mx-auto">
+            <p />
             <textarea
               className="form-control"
               id="disabledInput"
@@ -30,8 +28,8 @@ class NewNote extends Component {
               placeholder="Add bullet point..."
               disabled
             />
-          </div>
-        </form>
+          </li>
+        </ul>
       </div>
     );
   }
@@ -45,22 +43,29 @@ class NewNote extends Component {
     const { changePage } = this.props;
 
     if (e.which === 13) {
-      Storage.put(
-        `${newNoteTitle}.txt`,
-        JSON.stringify({
-          created_at: Date.now(),
-          subnotes: []
-        }),
-        {
-          level: 'private',
-          contentType: 'JSON'
-        }
-      )
+      // CHECK IF FILENAME ALREADY EXISTS
+      Storage.list(`${newNoteTitle}.txt`, { level: 'private' })
         .then(result => {
-          console.log('File created! >>>', result);
+          if (result.length) {
+            throw new Error('username exists');
+          } else {
+            return Storage.put(
+              `${newNoteTitle}.txt`,
+              JSON.stringify({
+                created_at: Date.now(),
+                subnotes: []
+              }),
+              {
+                level: 'private',
+                contentType: 'JSON'
+              }
+            );
+          }
+        })
+        .then(result => {
           changePage(result.key);
         })
-        .catch(err => console.log(err));
+        .catch(err => console.log('ERROR >>>', err));
     }
   };
 }

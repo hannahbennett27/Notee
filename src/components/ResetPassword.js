@@ -74,7 +74,7 @@ class ResetPassword extends Component {
             </div>
             {/* <div>
               <p>
-                <a href="#" onClick={() => updateAuthState('signIn')}>
+                <a href="# " onClick={() => updateAuthState('signIn')}>
                  TBC: Resend Code
                 </a>
               </p>

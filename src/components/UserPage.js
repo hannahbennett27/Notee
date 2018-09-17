@@ -7,7 +7,8 @@ import NewNote from './NewNote';
 class UserPage extends Component {
   // page options: 'UserHome', 'NewNote', ':note-key' (NotePage)
   state = {
-    page: 'Test Note One.txt'
+    // page: 'Test Note One.txt'
+    page: 'NewNote'
   };
 
   render() {

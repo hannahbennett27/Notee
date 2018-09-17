@@ -36,7 +36,7 @@ class SignIn extends Component {
                 onChange={this.handleChange}
               />
               <small id="passwordHelp" className="form-text text-muted">
-                <a href="#" onClick={() => updateAuthState('forgotPassword')}>
+                <a href="# " onClick={() => updateAuthState('forgotPassword')}>
                   Forgot your password?
                 </a>
               </small>
@@ -53,7 +53,7 @@ class SignIn extends Component {
             <div>
               <p className="bottom-p-tag">
                 No account?{' '}
-                <a href="#" onClick={() => updateAuthState('signUp')}>
+                <a href="# " onClick={() => updateAuthState('signUp')}>
                   Create account
                 </a>
               </p>

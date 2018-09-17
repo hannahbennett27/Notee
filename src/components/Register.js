@@ -72,7 +72,7 @@ class Register extends Component {
             <div>
               <p className="bottom-p-tag">
                 Have an account?{' '}
-                <a href="#" onClick={() => updateAuthState('signIn')}>
+                <a href="# " onClick={() => updateAuthState('signIn')}>
                   Sign in
                 </a>
               </p>

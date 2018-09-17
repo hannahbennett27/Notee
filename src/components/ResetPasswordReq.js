@@ -42,7 +42,7 @@ class ResetPasswordReq extends Component {
             </div>
             <div>
               <p className="bottom-p-tag">
-                <a href="#" onClick={() => updateAuthState('signIn')}>
+                <a href="# " onClick={() => updateAuthState('signIn')}>
                   Back to Sign In
                 </a>
               </p>

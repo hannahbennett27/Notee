@@ -13,7 +13,7 @@ class SignOut extends Component {
       //     Sign Out
       //   </button>
       // </div>
-      <a href="#" className="dropdown-item" onClick={this.handleSignOut}>
+      <a href="# " className="dropdown-item" onClick={this.handleSignOut}>
         Sign Out
       </a>
     );

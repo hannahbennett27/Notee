@@ -27,6 +27,7 @@ class App extends Component {
       })
       .catch(err => {
         console.log('ERROR >>>', err);
+        this.setState({ authState: '' });
       });
   }
 
@@ -37,9 +38,7 @@ class App extends Component {
     const appHeader = (
       <header className="App-header">
         <h1 className="App-title">
-          {/* <a onClick={() => this.updateAuthState('')}> */}
           <strong>Notee!</strong>
-          {/* </a> */}
         </h1>
       </header>
     );
