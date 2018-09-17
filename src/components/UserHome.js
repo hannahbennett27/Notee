@@ -33,22 +33,25 @@ class UserHome extends Component {
         <div>
           <ul className="list-group mx-auto">
             {notes.map(note => {
-              const titleRegExp = /([\D]+).txt/;
+              const titleRegExp = /(\D+).txt/;
               const noteTitle = titleRegExp.exec(note.key)[1];
 
               return (
                 <li key={note.eTag} className="list-group-item">
-                  <p className="card-title">{noteTitle}</p>
+                  <p className="card-title">
+                    <strong>{noteTitle}</strong>
+                  </p>
                   <p className="card-subtitle mb-2 text-muted">
                     <small>
                       Last modified {note.lastModified.toDateString()}
                     </small>
                   </p>
-                  <ul>
-                    <li className="card-text">
-                      <small>Content preview...?</small>
-                    </li>
-                  </ul>
+                  <li className="card-text list-unstyled">
+                    - Content preview...?
+                  </li>
+                  <li className="card-text list-unstyled">
+                    - Content preview...?
+                  </li>
                 </li>
               );
             })}
@@ -71,17 +74,6 @@ class UserHome extends Component {
       ? this.setState({ search: '', sort: e.target.name })
       : this.setState({ sort: e.target.name });
   };
-
-  // testGetFile = () => {
-  //   Storage.get('testThree.txt', { level: 'private' })
-  //     .then(fileURL => fetch(fileURL))
-  //     .then(res => {
-  //       console.log(res);
-  //       return res.json();
-  //     })
-  //     .then(fileData => console.log(fileData))
-  //     .catch(err => console.log('ERROR >>>', err));
-  // };
 }
 
 export default UserHome;

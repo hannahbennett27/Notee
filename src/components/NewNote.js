@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
+import { Storage } from 'aws-amplify';
 import NoteNavBar from './NoteNavBar';
 
 class NewNote extends Component {
-  state = { newTitle: '' };
+  state = { newNoteTitle: '' };
 
   render() {
     const { changePage } = this.props;
@@ -13,9 +14,9 @@ class NewNote extends Component {
         <form>
           <div className="form-group mx-auto">
             <input
-              type="email"
+              type="text"
               className="form-control"
-              id="exampleFormControlInput1"
+              // id="exampleFormControlInput1"
               placeholder="Note Title"
               onChange={this.handleChange}
               onKeyPress={this.handleEnter}
@@ -36,18 +37,35 @@ class NewNote extends Component {
   }
 
   handleChange = e => {
-    this.setState({ newTitle: e.target.value });
+    this.setState({ newNoteTitle: e.target.value });
   };
 
   handleEnter = e => {
+    const { newNoteTitle } = this.state;
+    const { changePage } = this.props;
+
     if (e.which === 13) {
-      console.log('SUBMIT! Create file...');
-      console.log("Redirect to 'add bullet point' page...");
+      Storage.put(
+        `${newNoteTitle}.txt`,
+        JSON.stringify({
+          created_at: Date.now(),
+          subnotes: []
+        }),
+        {
+          level: 'private',
+          contentType: 'JSON'
+        }
+      )
+        .then(result => {
+          console.log('File created! >>>', result);
+          changePage(result.key);
+        })
+        .catch(err => console.log(err));
     }
   };
 }
 
-// testPutFile = () => {
+// const testPutFile = () => {
 //   Storage.put(
 //     'Test Note One.txt',
 //     JSON.stringify({

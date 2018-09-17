@@ -26,7 +26,6 @@ const NavBar = ({
             className="dropdown-menu"
             aria-labelledby="navbarDropdownMenuLink"
           >
-            <a className="dropdown-item">Home</a>
             <a className="dropdown-item">Account</a>
             <SignOut />
           </div>
