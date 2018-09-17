@@ -65,24 +65,4 @@ class NewNote extends Component {
   };
 }
 
-// const testPutFile = () => {
-//   Storage.put(
-//     'Test Note One.txt',
-//     JSON.stringify({
-//       created_at: 'timestamp01',
-//       subnotes: [
-//         'First note bullet point',
-//         'And a second one...',
-//         'And a third!'
-//       ]
-//     }),
-//     {
-//       level: 'private',
-//       contentType: 'JSON'
-//     }
-//   )
-//     .then(result => console.log(result))
-//     .catch(err => console.log(err));
-// };
-
 export default NewNote;

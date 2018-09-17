@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import UserHome from './UserHome';
 import Note from './Note';
 import NewNote from './NewNote';
-import EditNote from './EditNote';
+// import EditNote from './EditNote';
 
 class UserPage extends Component {
   // page options: 'UserHome', 'NewNote', ':note-key' (NotePage)

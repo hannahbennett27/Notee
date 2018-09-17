@@ -46,12 +46,14 @@ class UserHome extends Component {
                       Last modified {note.lastModified.toDateString()}
                     </small>
                   </p>
-                  <li className="card-text list-unstyled">
-                    - Content preview...?
-                  </li>
-                  <li className="card-text list-unstyled">
-                    - Content preview...?
-                  </li>
+                  <ul className="list-unstyled">
+                    <li className="card-text list-unstyled">
+                      - Content preview...?
+                    </li>
+                    <li className="card-text list-unstyled">
+                      - Content preview...?
+                    </li>
+                  </ul>
                 </li>
               );
             })}

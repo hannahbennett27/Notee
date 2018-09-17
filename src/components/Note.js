@@ -3,7 +3,7 @@ import { Storage } from 'aws-amplify';
 import NoteNavBar from './NoteNavBar';
 
 class Note extends Component {
-  state = { activeNote: { created_at: '', subnotes: [] } };
+  state = { activeNote: { subnotes: [] }, newSubnote: '' };
 
   componentDidMount = () => {
     const { activeNoteFilename } = this.props;
@@ -20,7 +20,8 @@ class Note extends Component {
   render() {
     const { changePage, activeNoteFilename } = this.props;
     const {
-      activeNote: { created_at, subnotes }
+      activeNote: { subnotes },
+      newSubnote
     } = this.state;
     const titleRegExp = /(\D+).txt/;
     const noteTitle = titleRegExp.exec(activeNoteFilename)[1];
@@ -33,18 +34,23 @@ class Note extends Component {
             <p className="card-title">
               <strong>{noteTitle}</strong>
             </p>
-            {subnotes.map((subnote, index) => {
-              return (
-                <li key={index} className="card-text list-unstyled">
-                  - {subnote}
-                </li>
-              );
-            })}
+            <ul className="list-unstyled">
+              {subnotes.map((subnote, index) => {
+                return (
+                  <li key={index} className="card-text list-unstyled">
+                    - {subnote}
+                  </li>
+                );
+              })}
+            </ul>
             <form>
               <textarea
                 className="form-control"
                 rows="2"
                 placeholder="- Add bullet point..."
+                value={newSubnote}
+                onChange={this.handleChange}
+                onKeyPress={this.handleEnter}
               />
             </form>
           </li>
@@ -52,6 +58,29 @@ class Note extends Component {
       </div>
     );
   }
+
+  handleChange = e => {
+    this.setState({ newSubnote: e.target.value });
+  };
+
+  handleEnter = e => {
+    const { activeNoteFilename } = this.props;
+    const { activeNote, newSubnote } = this.state;
+
+    if (e.which === 13) {
+      const updatedNote = activeNote;
+      updatedNote.subnotes.push(newSubnote);
+
+      Storage.put(`${activeNoteFilename}`, JSON.stringify(updatedNote), {
+        level: 'private',
+        contentType: 'JSON'
+      })
+        .then(result => {
+          this.setState({ newSubnote: '' });
+        })
+        .catch(err => console.log(err));
+    }
+  };
 }
 
 export default Note;
